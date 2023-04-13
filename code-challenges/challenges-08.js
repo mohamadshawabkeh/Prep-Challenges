@@ -61,14 +61,13 @@ const customerAndAge = (obj) => {
 
 const getEntries = (obj) => {
   // write your code here
-  let receipes= [];
-   for (const [name, ingredients, cooktime, price] of Object.entries(obj)) {
-    receipes.push(`Name :${name} , ingregients :${ingredients},cookTime ${cookTime}, price ${price} `);
-  }
-
-  return receipes;
-};
-
+  return Object.entries(obj).map(([key, value]) => {
+    if (Array.isArray(value)) {
+      value = value.join(',');
+    }
+    return `${key}: ${value}`;
+  });
+}
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
